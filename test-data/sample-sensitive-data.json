@@ -1,0 +1,165 @@
+{
+  "users": [
+    {
+      "id": "USER001",
+      "firstName": "John",
+      "lastName": "Doe",
+      "fullName": "John Doe",
+      "email": "john.doe@email.com",
+      "phone": "555-123-4567",
+      "ssn": "123-45-6789",
+      "dateOfBirth": "1985-03-15",
+      "address": {
+        "street": "123 Main Street",
+        "city": "New York",
+        "state": "NY",
+        "zipCode": "10001",
+        "country": "USA"
+      },
+      "creditCard": "4532-1234-5678-9012",
+      "salary": 75000,
+      "isActive": true,
+      "notes": "Senior software engineer with excellent performance record"
+    },
+    {
+      "id": "USER002",
+      "firstName": "Jane",
+      "lastName": "Smith",
+      "fullName": "Jane Smith",
+      "email": "jane.smith@company.com",
+      "phone": "(555) 987-6543",
+      "ssn": "987-65-4321",
+      "dateOfBirth": "1990-07-22",
+      "address": {
+        "street": "456 Oak Avenue",
+        "city": "Los Angeles",
+        "state": "CA",
+        "zipCode": "90210",
+        "country": "USA"
+      },
+      "creditCard": "5555-4444-3333-2222",
+      "salary": 85000,
+      "isActive": true,
+      "notes": "Project manager with strong leadership skills"
+    },
+    {
+      "id": "USER003",
+      "firstName": "Michael",
+      "lastName": "Johnson",
+      "fullName": "Michael Johnson",
+      "email": "m.johnson@tech.org",
+      "phone": "555.555.0123",
+      "ssn": "456-78-9123",
+      "dateOfBirth": "1988-12-03",
+      "address": {
+        "street": "789 Pine Road",
+        "city": "Chicago",
+        "state": "IL",
+        "zipCode": "60601",
+        "country": "USA"
+      },
+      "creditCard": "4111111111111111",
+      "salary": 95000,
+      "isActive": false,
+      "notes": "Former employee, left for better opportunity"
+    }
+  ],
+  "customers": [
+    {
+      "customerId": "CUST12345",
+      "name": "Alice Williams",
+      "email": "alice.williams@gmail.com",
+      "phone": "+1-555-111-2233",
+      "ssn": "111-22-3333",
+      "address": "321 Elm Street, Boston, MA 02101",
+      "creditCard": "6011-0009-9013-9424",
+      "accountBalance": 1250.75,
+      "memberSince": "2020-01-15"
+    },
+    {
+      "customerId": "CUST67890",
+      "name": "Robert Brown",
+      "email": "robert.brown@yahoo.com",
+      "phone": "555 444 7777",
+      "ssn": "444-55-6666",
+      "address": "654 Maple Drive, Seattle, WA 98101",
+      "creditCard": "3782-822463-10005",
+      "accountBalance": 2840.50,
+      "memberSince": "2019-08-22"
+    }
+  ],
+  "employees": [
+    {
+      "employeeId": "EMP001",
+      "personalInfo": {
+        "firstName": "Sarah",
+        "lastName": "Davis",
+        "email": "sarah.davis@company.com",
+        "phone": "555-222-8888",
+        "ssn": "777-88-9999",
+        "dateOfBirth": "1992-05-10"
+      },
+      "workInfo": {
+        "department": "Engineering",
+        "position": "Senior Developer",
+        "salary": 105000,
+        "startDate": "2021-03-01",
+        "managerId": "MGR001"
+      },
+      "emergencyContact": {
+        "name": "David Davis",
+        "relationship": "Spouse",
+        "phone": "555-333-9999"
+      }
+    },
+    {
+      "employeeId": "EMP002",
+      "personalInfo": {
+        "firstName": "Thomas",
+        "lastName": "Wilson",
+        "email": "thomas.wilson@company.com",
+        "phone": "(555) 666-1111",
+        "ssn": "222-33-4444",
+        "dateOfBirth": "1987-11-18"
+      },
+      "workInfo": {
+        "department": "Marketing",
+        "position": "Marketing Manager",
+        "salary": 78000,
+        "startDate": "2020-06-15",
+        "managerId": "MGR002"
+      },
+      "emergencyContact": {
+        "name": "Linda Wilson",
+        "relationship": "Mother",
+        "phone": "555-777-2222"
+      }
+    }
+  ],
+  "medicalRecords": [
+    {
+      "patientId": "PAT001",
+      "name": "Emma Thompson",
+      "ssn": "555-66-7777",
+      "dateOfBirth": "1975-09-25",
+      "phone": "555-888-3333",
+      "email": "emma.thompson@email.com",
+      "address": "147 Health Street, Miami, FL 33101",
+      "insuranceNumber": "INS123456789",
+      "diagnosis": "Hypertension, managed with medication",
+      "lastVisit": "2024-02-15"
+    },
+    {
+      "patientId": "PAT002",
+      "name": "James Anderson",
+      "ssn": "888-99-0000",
+      "dateOfBirth": "1983-04-12",
+      "phone": "555-999-4444",
+      "email": "james.anderson@health.com",
+      "address": "963 Wellness Ave, Denver, CO 80201",
+      "insuranceNumber": "INS987654321",
+      "diagnosis": "Diabetes Type 2, regular monitoring required",
+      "lastVisit": "2024-01-30"
+    }
+  ]
+}

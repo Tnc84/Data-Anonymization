@@ -1,0 +1,12 @@
+{
+  "firstName": "John",
+  "lastName": "Doe",
+  "email": "john.doe@example.com",
+  "phone": "555-123-4567",
+  "ssn": "123-45-6789",
+  "creditCard": "4532-1234-5678-9012",
+  "address": "123 Main Street, New York, NY 10001",
+  "dateOfBirth": "1985-03-15",
+  "salary": 75000,
+  "isActive": true
+}

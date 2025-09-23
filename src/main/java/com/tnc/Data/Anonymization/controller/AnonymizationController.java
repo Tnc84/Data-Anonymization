@@ -8,6 +8,7 @@ import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import lombok.RequiredArgsConstructor;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -22,13 +23,10 @@ import java.util.Map;
 @RestController
 @RequestMapping("/api/v1/anonymization")
 @CrossOrigin(origins = "*")
+@RequiredArgsConstructor
 public class AnonymizationController {
     
     private final AnonymizationService anonymizationService;
-    
-    public AnonymizationController(AnonymizationService anonymizationService) {
-        this.anonymizationService = anonymizationService;
-    }
     
     /**
      * Anonymize data using the specified strategy

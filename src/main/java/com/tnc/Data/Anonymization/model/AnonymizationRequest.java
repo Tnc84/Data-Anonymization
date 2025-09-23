@@ -4,11 +4,17 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import java.util.Map;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 /**
  * Request model for data anonymization operations.
  * Follows SOLID principles - Single Responsibility for request data structure.
  */
+@Getter
+@Setter
+@NoArgsConstructor
 public class AnonymizationRequest {
     
     @NotNull(message = "Data cannot be null")
@@ -25,44 +31,8 @@ public class AnonymizationRequest {
     @JsonProperty("seed")
     private Long seed; // For consistent anonymization
     
-    // Constructors
-    public AnonymizationRequest() {}
-    
     public AnonymizationRequest(Map<String, Object> data, String strategy) {
         this.data = data;
         this.strategy = strategy;
-    }
-    
-    // Getters and Setters
-    public Map<String, Object> getData() {
-        return data;
-    }
-    
-    public void setData(Map<String, Object> data) {
-        this.data = data;
-    }
-    
-    public String getStrategy() {
-        return strategy;
-    }
-    
-    public void setStrategy(String strategy) {
-        this.strategy = strategy;
-    }
-    
-    public boolean isPreserveFormat() {
-        return preserveFormat;
-    }
-    
-    public void setPreserveFormat(boolean preserveFormat) {
-        this.preserveFormat = preserveFormat;
-    }
-    
-    public Long getSeed() {
-        return seed;
-    }
-    
-    public void setSeed(Long seed) {
-        this.seed = seed;
     }
 }

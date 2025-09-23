@@ -5,6 +5,7 @@ import com.tnc.Data.Anonymization.enums.DataType;
 import com.tnc.Data.Anonymization.service.interfaces.DataAnonymizer;
 import org.springframework.stereotype.Component;
 import org.apache.commons.lang3.StringUtils;
+import lombok.RequiredArgsConstructor;
 
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -19,13 +20,10 @@ import java.util.Random;
  * - Liskov Substitution: Can replace any DataAnonymizer implementation
  */
 @Component("fakeDataAnonymizer")
+@RequiredArgsConstructor
 public class FakeDataAnonymizer implements DataAnonymizer {
     
-    private final Faker defaultFaker;
-    
-    public FakeDataAnonymizer() {
-        this.defaultFaker = new Faker();
-    }
+    private final Faker defaultFaker = new Faker();
     
     @Override
     public Object anonymize(Object value, DataType dataType, boolean preserveFormat, Long seed) {

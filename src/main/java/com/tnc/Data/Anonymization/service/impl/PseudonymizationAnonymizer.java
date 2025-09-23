@@ -3,6 +3,7 @@ package com.tnc.Data.Anonymization.service.impl;
 import com.tnc.Data.Anonymization.enums.DataType;
 import com.tnc.Data.Anonymization.service.interfaces.DataAnonymizer;
 import org.springframework.stereotype.Component;
+import lombok.RequiredArgsConstructor;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
@@ -20,11 +21,10 @@ import java.util.concurrent.ConcurrentHashMap;
 @Component("pseudonymizationAnonymizer")
 public class PseudonymizationAnonymizer implements DataAnonymizer {
     
-    private final ConcurrentHashMap<String, String> pseudonymCache;
+    private final ConcurrentHashMap<String, String> pseudonymCache = new ConcurrentHashMap<>();
     private final MessageDigest messageDigest;
     
     public PseudonymizationAnonymizer() {
-        this.pseudonymCache = new ConcurrentHashMap<>();
         try {
             this.messageDigest = MessageDigest.getInstance("SHA-256");
         } catch (NoSuchAlgorithmException e) {

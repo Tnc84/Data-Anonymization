@@ -3,7 +3,6 @@ package com.tnc.Data.Anonymization.service.impl;
 import com.tnc.Data.Anonymization.enums.DataType;
 import com.tnc.Data.Anonymization.service.interfaces.DataAnonymizer;
 import org.springframework.stereotype.Component;
-import lombok.RequiredArgsConstructor;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;

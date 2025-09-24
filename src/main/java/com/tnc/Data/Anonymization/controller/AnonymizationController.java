@@ -9,6 +9,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import lombok.RequiredArgsConstructor;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -24,6 +31,7 @@ import java.util.Map;
 @RequestMapping("/api/v1/anonymization")
 @CrossOrigin(origins = "*")
 @RequiredArgsConstructor
+@Tag(name = "Data Anonymization", description = "APIs for anonymizing sensitive data using various strategies")
 public class AnonymizationController {
     
     private final AnonymizationService anonymizationService;
@@ -31,8 +39,22 @@ public class AnonymizationController {
     /**
      * Anonymize data using the specified strategy
      */
+    @Operation(
+        summary = "Anonymize sensitive data",
+        description = "Anonymizes the provided data using the specified strategy (PSEUDONYMIZATION, MASKING, REDACTION, FORMAT_PRESERVING_ENCRYPTION)"
+    )
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "Data anonymized successfully",
+                content = @Content(mediaType = "application/json", schema = @Schema(implementation = AnonymizationResponse.class))),
+        @ApiResponse(responseCode = "400", description = "Invalid request data",
+                content = @Content(mediaType = "application/json")),
+        @ApiResponse(responseCode = "500", description = "Internal server error",
+                content = @Content(mediaType = "application/json"))
+    })
     @PostMapping("/anonymize")
-    public ResponseEntity<AnonymizationResponse> anonymizeData(@Valid @RequestBody AnonymizationRequest request) {
+    public ResponseEntity<AnonymizationResponse> anonymizeData(
+            @Parameter(description = "Anonymization request containing data and strategy", required = true)
+            @Valid @RequestBody AnonymizationRequest request) {
         try {
             AnonymizationResponse response = anonymizationService.anonymizeData(request);
             
@@ -79,6 +101,16 @@ public class AnonymizationController {
     /**
      * Get available anonymization strategies
      */
+    @Operation(
+        summary = "Get available anonymization strategies",
+        description = "Returns a list of all available anonymization strategies with their descriptions"
+    )
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "Strategies retrieved successfully",
+                content = @Content(mediaType = "application/json")),
+        @ApiResponse(responseCode = "500", description = "Internal server error",
+                content = @Content(mediaType = "application/json"))
+    })
     @GetMapping("/strategies")
     public ResponseEntity<Map<String, Object>> getAvailableStrategies() {
         try {
@@ -105,6 +137,12 @@ public class AnonymizationController {
     /**
      * Health check endpoint
      */
+    @Operation(
+        summary = "Health check",
+        description = "Returns the health status of the anonymization service"
+    )
+    @ApiResponse(responseCode = "200", description = "Service is healthy",
+            content = @Content(mediaType = "application/json"))
     @GetMapping("/health")
     public ResponseEntity<Map<String, Object>> healthCheck() {
         Map<String, Object> health = new HashMap<>();

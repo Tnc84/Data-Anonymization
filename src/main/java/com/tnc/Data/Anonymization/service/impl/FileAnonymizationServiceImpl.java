@@ -5,6 +5,7 @@ import com.tnc.Data.Anonymization.model.AnonymizationResponse;
 import com.tnc.Data.Anonymization.model.FileAnonymizationResponse;
 import com.tnc.Data.Anonymization.service.interfaces.AnonymizationService;
 import com.tnc.Data.Anonymization.service.interfaces.FileAnonymizationService;
+import com.tnc.Data.Anonymization.service.interfaces.FileProcessor;
 import com.tnc.Data.Anonymization.util.FileUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,6 +34,7 @@ public class FileAnonymizationServiceImpl implements FileAnonymizationService {
     
     private final AnonymizationService anonymizationService;
     private final FileUtil fileUtil;
+    private final FileProcessorFactory fileProcessorFactory;
     
     @Value("${anonymization.files.upload-dir:uploads}")
     private String uploadDir;
@@ -43,12 +45,13 @@ public class FileAnonymizationServiceImpl implements FileAnonymizationService {
     @Value("${anonymization.files.anonymized-suffix:_anon}")
     private String anonymizedSuffix;
     
-    @Value("${anonymization.files.allowed-extensions:csv,json}")
-    private String[] allowedExtensions;
     
-    public FileAnonymizationServiceImpl(AnonymizationService anonymizationService, FileUtil fileUtil) {
+    public FileAnonymizationServiceImpl(AnonymizationService anonymizationService, 
+                                      FileUtil fileUtil,
+                                      FileProcessorFactory fileProcessorFactory) {
         this.anonymizationService = anonymizationService;
         this.fileUtil = fileUtil;
+        this.fileProcessorFactory = fileProcessorFactory;
     }
     
     @Override
@@ -79,10 +82,10 @@ public class FileAnonymizationServiceImpl implements FileAnonymizationService {
         }
         
         String fileExtension = fileUtil.getFileExtension(originalFileName);
-        if (!isAllowedExtension(fileExtension)) {
+        if (!fileProcessorFactory.isSupported(fileExtension)) {
             return new FileAnonymizationResponse(false, 
-                "File extension '" + fileExtension + "' is not allowed. Allowed extensions: " + 
-                String.join(", ", allowedExtensions));
+                "File extension '" + fileExtension + "' is not supported. Supported extensions: " + 
+                String.join(", ", fileProcessorFactory.getSupportedExtensions()));
         }
         
         try {
@@ -92,19 +95,14 @@ public class FileAnonymizationServiceImpl implements FileAnonymizationService {
             fileUtil.ensureDirectoryExists(uploadDir);
             fileUtil.ensureDirectoryExists(outputDir);
             
-            // Parse file based on extension
+            // Get the appropriate processor for this file type
+            FileProcessor processor = fileProcessorFactory.getProcessor(fileExtension);
+            logger.debug("Using processor: {} for file: {}", processor.getClass().getSimpleName(), originalFileName);
+            
+            // Parse file using the processor
             List<Map<String, Object>> records;
             try (var inputStream = file.getInputStream()) {
-                if ("csv".equalsIgnoreCase(fileExtension)) {
-                    logger.debug("Parsing CSV file: {}", originalFileName);
-                    records = fileUtil.parseCsvFile(inputStream);
-                } else if ("json".equalsIgnoreCase(fileExtension)) {
-                    logger.debug("Parsing JSON file: {}", originalFileName);
-                    records = fileUtil.parseJsonFile(inputStream);
-                } else {
-                    logger.error("Unsupported file format: {}", fileExtension);
-                    return new FileAnonymizationResponse(false, "Unsupported file format: " + fileExtension);
-                }
+                records = processor.parseFile(inputStream);
             } catch (Exception parseException) {
                 logger.error("Failed to parse file: {} - {}", originalFileName, parseException.getMessage(), parseException);
                 return new FileAnonymizationResponse(false, "Failed to parse file: " + parseException.getMessage());
@@ -141,12 +139,8 @@ public class FileAnonymizationServiceImpl implements FileAnonymizationService {
             
             Path outputPath = Paths.get(outputDir, outputFileName);
             
-            // Write anonymized data to file
-            if ("csv".equalsIgnoreCase(fileExtension)) {
-                fileUtil.writeCsvFile(records, outputPath);
-            } else if ("json".equalsIgnoreCase(fileExtension)) {
-                fileUtil.writeJsonFile(records, outputPath);
-            }
+            // Write anonymized data to file using the processor
+            processor.writeFile(records, outputPath);
             
             // Create successful response
             FileAnonymizationResponse response = new FileAnonymizationResponse(
@@ -181,12 +175,4 @@ public class FileAnonymizationServiceImpl implements FileAnonymizationService {
         return "/api/v1/anonymization/download/" + fileName;
     }
     
-    private boolean isAllowedExtension(String extension) {
-        for (String allowedExt : allowedExtensions) {
-            if (allowedExt.equalsIgnoreCase(extension)) {
-                return true;
-            }
-        }
-        return false;
-    }
 }

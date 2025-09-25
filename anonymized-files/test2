@@ -1,0 +1,152 @@
+{
+  "medicalRecords" : [ {
+    "insuranceNumber" : "reprehenderit",
+    "address" : "1854 Alease Mission",
+    "patientId" : "TQ738993",
+    "phone" : "101-854-5219",
+    "name" : "Huey Crooks Sr.",
+    "diagnosis" : "reprehenderit",
+    "lastVisit" : "reprehenderit",
+    "dateOfBirth" : "Thu Apr 08 12:11:45 EEST 1982",
+    "email" : "georgine.welch@email.com",
+    "ssn" : "101-85-4521"
+  }, {
+    "insuranceNumber" : "reprehenderit",
+    "address" : "85452 Cecelia Expressway, West Jonathan, PA 25112-6815",
+    "patientId" : "TQ738993",
+    "phone" : "101-854-5219",
+    "name" : "Huey Crooks Sr.",
+    "diagnosis" : "reprehenderit",
+    "lastVisit" : "reprehenderit",
+    "dateOfBirth" : "Thu Apr 08 12:11:45 EEST 1982",
+    "email" : "georgine.welch@health.com",
+    "ssn" : "101-85-4521"
+  } ],
+  "customers" : [ {
+    "memberSince" : "reprehenderit",
+    "address" : "1854 Alease Mission",
+    "phone" : "+1-018-545-2197",
+    "customerId" : "TQ738993",
+    "name" : "Huey Crooks Sr.",
+    "creditCard" : "1018-5452-1972-0624",
+    "accountBalance" : 157,
+    "email" : "georgine.welch@gmail.com",
+    "ssn" : "101-85-4521"
+  }, {
+    "memberSince" : "reprehenderit",
+    "address" : "85452 Cecelia Expressway, West Jonathan, PA 25112-6815",
+    "phone" : "101 854 5219",
+    "customerId" : "TQ738993",
+    "name" : "Huey Crooks Sr.",
+    "creditCard" : "1018-5452-1972-0624",
+    "accountBalance" : 157,
+    "email" : "georgine.welch@yahoo.com",
+    "ssn" : "101-85-4521"
+  } ],
+  "employees" : [ {
+    "personalInfo" : {
+      "firstName" : "Georgine",
+      "lastName" : "Georgine",
+      "phone" : "101-854-5219",
+      "dateOfBirth" : "Thu Apr 08 12:11:45 EEST 1982",
+      "email" : "georgine.welch@company.com",
+      "ssn" : "101-85-4521"
+    },
+    "workInfo" : {
+      "position" : "reprehenderit",
+      "managerId" : "TQ738993",
+      "department" : "reprehenderit",
+      "salary" : 157,
+      "startDate" : "Thu Apr 08 12:11:45 EEST 1982"
+    },
+    "emergencyContact" : {
+      "phone" : "101-854-5219",
+      "name" : "Huey Crooks Sr.",
+      "relationship" : "reprehenderit"
+    },
+    "employeeId" : "TQ738993"
+  }, {
+    "personalInfo" : {
+      "firstName" : "Georgine",
+      "lastName" : "Georgine",
+      "phone" : "(101) 854-5219",
+      "dateOfBirth" : "Thu Apr 08 12:11:45 EEST 1982",
+      "email" : "georgine.welch@company.com",
+      "ssn" : "101-85-4521"
+    },
+    "workInfo" : {
+      "position" : "reprehenderit",
+      "managerId" : "TQ738993",
+      "department" : "reprehenderit",
+      "salary" : 157,
+      "startDate" : "Thu Apr 08 12:11:45 EEST 1982"
+    },
+    "emergencyContact" : {
+      "phone" : "101-854-5219",
+      "name" : "Huey Crooks Sr.",
+      "relationship" : "reprehenderit"
+    },
+    "employeeId" : "TQ738993"
+  } ],
+  "users" : [ {
+    "lastName" : "Georgine",
+    "address" : {
+      "zipCode" : "85452 Cecelia Expressway, West Jonathan, PA 25112-6815",
+      "country" : "reprehenderit",
+      "city" : "85452 Cecelia Expressway, West Jonathan, PA 25112-6815",
+      "street" : "1854 Alease Mission",
+      "state" : "reprehenderit"
+    },
+    "notes" : "reprehenderit",
+    "fullName" : "Huey Crooks Sr.",
+    "dateOfBirth" : "Thu Apr 08 12:11:45 EEST 1982",
+    "salary" : 157,
+    "isActive" : false,
+    "ssn" : "101-85-4521",
+    "firstName" : "Georgine",
+    "phone" : "101-854-5219",
+    "id" : "TQ738993",
+    "creditCard" : "1018-5452-1972-0624",
+    "email" : "georgine.welch@email.com"
+  }, {
+    "lastName" : "Georgine",
+    "address" : {
+      "zipCode" : "85452 Cecelia Expressway, West Jonathan, PA 25112-6815",
+      "country" : "reprehenderit",
+      "city" : "85452 Cecelia Expressway, West Jonathan, PA 25112-6815",
+      "street" : "1854 Alease Mission",
+      "state" : "reprehenderit"
+    },
+    "notes" : "reprehenderit",
+    "fullName" : "Huey Crooks Sr.",
+    "dateOfBirth" : "Thu Apr 08 12:11:45 EEST 1982",
+    "salary" : 157,
+    "isActive" : false,
+    "ssn" : "101-85-4521",
+    "firstName" : "Georgine",
+    "phone" : "(101) 854-5219",
+    "id" : "TQ738993",
+    "creditCard" : "1018-5452-1972-0624",
+    "email" : "georgine.welch@company.com"
+  }, {
+    "lastName" : "Georgine",
+    "address" : {
+      "zipCode" : "85452 Cecelia Expressway, West Jonathan, PA 25112-6815",
+      "country" : "reprehenderit",
+      "city" : "85452 Cecelia Expressway, West Jonathan, PA 25112-6815",
+      "street" : "1854 Alease Mission",
+      "state" : "reprehenderit"
+    },
+    "notes" : "reprehenderit",
+    "fullName" : "Huey Crooks Sr.",
+    "dateOfBirth" : "Thu Apr 08 12:11:45 EEST 1982",
+    "salary" : 157,
+    "isActive" : false,
+    "ssn" : "101-85-4521",
+    "firstName" : "Georgine",
+    "phone" : "101.854.5219",
+    "id" : "TQ738993",
+    "creditCard" : "1018545219720624",
+    "email" : "georgine.welch@tech.org"
+  } ]
+}

@@ -1,0 +1,12 @@
+{
+  "firstName" : "Sol",
+  "lastName" : "Sol",
+  "address" : "521 Brian Villages",
+  "phone" : "635-218-6796",
+  "dateOfBirth" : "Sat Oct 30 20:03:18 EET 1954",
+  "creditCard" : "6352-1867-9601-2471",
+  "salary" : 216,
+  "isActive" : true,
+  "email" : "sol.volkman@example.com",
+  "ssn" : "635-21-8679"
+}

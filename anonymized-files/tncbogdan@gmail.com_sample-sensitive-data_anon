@@ -1,0 +1,152 @@
+{
+  "medicalRecords" : [ {
+    "insuranceNumber" : "molestiae",
+    "address" : "3908 Mohammed Run",
+    "patientId" : "PJ043110",
+    "phone" : "913-908-6676",
+    "name" : "Odessa Hoppe I",
+    "diagnosis" : "molestiae",
+    "lastVisit" : "molestiae",
+    "dateOfBirth" : "Mon Nov 22 03:37:53 EET 1965",
+    "email" : "teena.emmerich@email.com",
+    "ssn" : "913-90-8667"
+  }, {
+    "insuranceNumber" : "molestiae",
+    "address" : "90866 Emard Alley, North Leif, AK 32620",
+    "patientId" : "PJ043110",
+    "phone" : "913-908-6676",
+    "name" : "Odessa Hoppe I",
+    "diagnosis" : "molestiae",
+    "lastVisit" : "molestiae",
+    "dateOfBirth" : "Mon Nov 22 03:37:53 EET 1965",
+    "email" : "teena.emmerich@health.com",
+    "ssn" : "913-90-8667"
+  } ],
+  "customers" : [ {
+    "memberSince" : "molestiae",
+    "address" : "3908 Mohammed Run",
+    "phone" : "+9-139-086-6765",
+    "customerId" : "PJ043110",
+    "name" : "Odessa Hoppe I",
+    "creditCard" : "9139-0866-7650-7091",
+    "accountBalance" : 244,
+    "email" : "teena.emmerich@gmail.com",
+    "ssn" : "913-90-8667"
+  }, {
+    "memberSince" : "molestiae",
+    "address" : "90866 Emard Alley, North Leif, AK 32620",
+    "phone" : "913 908 6676",
+    "customerId" : "PJ043110",
+    "name" : "Odessa Hoppe I",
+    "creditCard" : "9139-0866-7650-7091",
+    "accountBalance" : 244,
+    "email" : "teena.emmerich@yahoo.com",
+    "ssn" : "913-90-8667"
+  } ],
+  "employees" : [ {
+    "personalInfo" : {
+      "firstName" : "Teena",
+      "lastName" : "Teena",
+      "phone" : "913-908-6676",
+      "dateOfBirth" : "Mon Nov 22 03:37:53 EET 1965",
+      "email" : "teena.emmerich@company.com",
+      "ssn" : "913-90-8667"
+    },
+    "workInfo" : {
+      "position" : "molestiae",
+      "managerId" : "PJ043110",
+      "department" : "molestiae",
+      "salary" : 244,
+      "startDate" : "Mon Nov 22 03:37:53 EET 1965"
+    },
+    "emergencyContact" : {
+      "phone" : "913-908-6676",
+      "name" : "Odessa Hoppe I",
+      "relationship" : "molestiae"
+    },
+    "employeeId" : "PJ043110"
+  }, {
+    "personalInfo" : {
+      "firstName" : "Teena",
+      "lastName" : "Teena",
+      "phone" : "(913) 908-6676",
+      "dateOfBirth" : "Mon Nov 22 03:37:53 EET 1965",
+      "email" : "teena.emmerich@company.com",
+      "ssn" : "913-90-8667"
+    },
+    "workInfo" : {
+      "position" : "molestiae",
+      "managerId" : "PJ043110",
+      "department" : "molestiae",
+      "salary" : 244,
+      "startDate" : "Mon Nov 22 03:37:53 EET 1965"
+    },
+    "emergencyContact" : {
+      "phone" : "913-908-6676",
+      "name" : "Odessa Hoppe I",
+      "relationship" : "molestiae"
+    },
+    "employeeId" : "PJ043110"
+  } ],
+  "users" : [ {
+    "lastName" : "Teena",
+    "address" : {
+      "zipCode" : "90866 Emard Alley, North Leif, AK 32620",
+      "country" : "molestiae",
+      "city" : "90866 Emard Alley, North Leif, AK 32620",
+      "street" : "3908 Mohammed Run",
+      "state" : "molestiae"
+    },
+    "notes" : "molestiae",
+    "fullName" : "Odessa Hoppe I",
+    "dateOfBirth" : "Mon Nov 22 03:37:53 EET 1965",
+    "salary" : 244,
+    "isActive" : false,
+    "ssn" : "913-90-8667",
+    "firstName" : "Teena",
+    "phone" : "913-908-6676",
+    "id" : "PJ043110",
+    "creditCard" : "9139-0866-7650-7091",
+    "email" : "teena.emmerich@email.com"
+  }, {
+    "lastName" : "Teena",
+    "address" : {
+      "zipCode" : "90866 Emard Alley, North Leif, AK 32620",
+      "country" : "molestiae",
+      "city" : "90866 Emard Alley, North Leif, AK 32620",
+      "street" : "3908 Mohammed Run",
+      "state" : "molestiae"
+    },
+    "notes" : "molestiae",
+    "fullName" : "Odessa Hoppe I",
+    "dateOfBirth" : "Mon Nov 22 03:37:53 EET 1965",
+    "salary" : 244,
+    "isActive" : false,
+    "ssn" : "913-90-8667",
+    "firstName" : "Teena",
+    "phone" : "(913) 908-6676",
+    "id" : "PJ043110",
+    "creditCard" : "9139-0866-7650-7091",
+    "email" : "teena.emmerich@company.com"
+  }, {
+    "lastName" : "Teena",
+    "address" : {
+      "zipCode" : "90866 Emard Alley, North Leif, AK 32620",
+      "country" : "molestiae",
+      "city" : "90866 Emard Alley, North Leif, AK 32620",
+      "street" : "3908 Mohammed Run",
+      "state" : "molestiae"
+    },
+    "notes" : "molestiae",
+    "fullName" : "Odessa Hoppe I",
+    "dateOfBirth" : "Mon Nov 22 03:37:53 EET 1965",
+    "salary" : 244,
+    "isActive" : false,
+    "ssn" : "913-90-8667",
+    "firstName" : "Teena",
+    "phone" : "913.908.6676",
+    "id" : "PJ043110",
+    "creditCard" : "9139086676507091",
+    "email" : "teena.emmerich@tech.org"
+  } ]
+}

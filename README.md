@@ -16,6 +16,14 @@ A comprehensive Spring Boot application for anonymizing sensitive data using var
 - **Batch Processing**: Handle multiple datasets simultaneously
 - **Nested Data Support**: Recursively processes complex JSON structures
 
+### File Processing ✨ **NEW!**
+- **📁 File Upload & Anonymization**: Upload CSV/JSON files for automatic anonymization
+- **📂 Organized File Structure**: Anonymized files saved in dedicated `anonymized-files` folder
+- **🏷️ Smart File Naming**: Automatic "_anon" suffix (e.g., `test.csv` → `test_anon.csv`)
+- **📥 File Download**: Direct download of anonymized files
+- **📋 File Management**: List and manage all anonymized files
+- **🔄 Format Support**: CSV and JSON file formats supported
+
 ### Developer Experience
 - **📚 OpenAPI Documentation**: Interactive Swagger UI for API exploration (✅ **WORKING!**)
 - **🎯 Lombok Integration**: Clean, boilerplate-free code
@@ -65,7 +73,34 @@ The application follows SOLID principles with a clean, extensible architecture:
 
 ### Key Endpoints
 
-#### Anonymize Data
+#### File Anonymization ✨ **NEW!**
+
+##### Upload and Anonymize File
+```http
+POST /api/v1/anonymization/upload-anonymize
+Content-Type: multipart/form-data
+
+Form Data:
+- file: [CSV or JSON file]
+- strategy: "MASKING" (optional, default: "MASKING")
+- preserveFormat: true (optional, default: true)
+- seed: 12345 (optional)
+- outputFileName: "custom_name_anon.csv" (optional)
+```
+
+##### Download Anonymized File
+```http
+GET /api/v1/anonymization/download/{fileName}
+```
+
+##### List All Anonymized Files
+```http
+GET /api/v1/anonymization/files
+```
+
+#### Data Anonymization
+
+##### Anonymize Data
 ```http
 POST /api/v1/anonymization/anonymize
 Content-Type: application/json
@@ -279,7 +314,9 @@ public ResponseEntity<AnonymizationResponse> anonymizeData(
 Sample test files are provided in the `test-data/` directory:
 - `sample-sensitive-data.json` - Complex nested data structure
 - `simple-test-data.json` - Basic test data
-- `test-anonymization.bat` / `test-anonymization.sh` - Test scripts
+- `test.csv` - Sample CSV file for file anonymization testing ✨ **NEW!**
+- `test-anonymization.bat` / `test-anonymization.sh` - Test scripts for API testing
+- `test-file-anonymization.bat` / `test-file-anonymization.sh` - Test scripts for file anonymization ✨ **NEW!**
 
 ## 📝 Usage Examples
 
@@ -291,6 +328,23 @@ Sample test files are provided in the `test-data/` directory:
 5. **Real-time testing confirmed** - API calls return proper anonymized data
 
 ### cURL Examples
+
+#### File Anonymization ✨ **NEW!**
+```bash
+# Upload and anonymize a CSV file
+curl -X POST http://localhost:8080/api/v1/anonymization/upload-anonymize \
+  -F "file=@test-data/test.csv" \
+  -F "strategy=MASKING" \
+  -F "preserveFormat=true"
+
+# List all anonymized files
+curl http://localhost:8080/api/v1/anonymization/files
+
+# Download an anonymized file
+curl -O http://localhost:8080/api/v1/anonymization/download/test_anon.csv
+```
+
+#### Data Anonymization
 ```bash
 # Quick anonymization
 curl -X POST http://localhost:8080/api/v1/anonymization/quick-anonymize \

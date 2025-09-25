@@ -1,7 +1,10 @@
 package com.tnc.Data.Anonymization.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -40,5 +43,16 @@ public class AnonymizationConfig {
         String lowerFieldName = fieldName.toLowerCase();
         return sensitiveFields.stream()
             .anyMatch(sensitiveField -> lowerFieldName.contains(sensitiveField.toLowerCase()));
+    }
+    
+    /**
+     * Configure ObjectMapper for JSON processing
+     */
+    @Bean
+    public ObjectMapper objectMapper() {
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+        mapper.configure(DeserializationFeature.ACCEPT_EMPTY_STRING_AS_NULL_OBJECT, true);
+        return mapper;
     }
 }

@@ -1,0 +1,12 @@
+{
+  "firstName" : "Birdie",
+  "lastName" : "Shirley",
+  "address" : "635 Predovic Knoll",
+  "phone" : "390-205-3775",
+  "dateOfBirth" : "Mon Feb 25 21:35:06 EET 1991",
+  "creditCard" : "0647-7949-5347-7177",
+  "salary" : 32,
+  "isActive" : false,
+  "email" : "zada.kshlerin@example.com",
+  "ssn" : "248-54-9467"
+}

@@ -17,7 +17,7 @@ import java.util.Map;
  * - Single Responsibility: Handles exceptions globally
  * - Open/Closed: Open for extension with new exception types
  */
-//@ControllerAdvice  // Disabled for OpenAPI compatibility
+@ControllerAdvice
 public class GlobalExceptionHandler {
     
     /**

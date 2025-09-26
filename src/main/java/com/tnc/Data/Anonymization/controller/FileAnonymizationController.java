@@ -1,6 +1,6 @@
 package com.tnc.Data.Anonymization.controller;
 
-import com.tnc.Data.Anonymization.model.FileAnonymizationResponse;
+import com.tnc.Data.Anonymization.dto.FileAnonymizationResponse;
 import com.tnc.Data.Anonymization.service.interfaces.FileAnonymizationService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -9,8 +9,10 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.io.Resource;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.core.io.UrlResource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -34,6 +36,8 @@ import java.nio.file.Path;
 @CrossOrigin(origins = "*")
 @RequiredArgsConstructor
 @Tag(name = "File Anonymization", description = "APIs for anonymizing files (CSV, JSON) with automatic folder management")
+@SecurityRequirement(name = "bearerAuth")
+@PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
 public class FileAnonymizationController {
     
     private final FileAnonymizationService fileAnonymizationService;

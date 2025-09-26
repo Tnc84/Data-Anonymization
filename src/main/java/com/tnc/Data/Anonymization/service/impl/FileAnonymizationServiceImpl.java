@@ -1,8 +1,8 @@
 package com.tnc.Data.Anonymization.service.impl;
 
-import com.tnc.Data.Anonymization.model.AnonymizationRequest;
-import com.tnc.Data.Anonymization.model.AnonymizationResponse;
-import com.tnc.Data.Anonymization.model.FileAnonymizationResponse;
+import com.tnc.Data.Anonymization.dto.AnonymizationRequest;
+import com.tnc.Data.Anonymization.dto.AnonymizationResponse;
+import com.tnc.Data.Anonymization.dto.FileAnonymizationResponse;
 import com.tnc.Data.Anonymization.service.interfaces.AnonymizationService;
 import com.tnc.Data.Anonymization.service.interfaces.FileAnonymizationService;
 import com.tnc.Data.Anonymization.service.interfaces.FileProcessor;

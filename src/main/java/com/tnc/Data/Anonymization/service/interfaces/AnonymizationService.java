@@ -1,8 +1,8 @@
 package com.tnc.Data.Anonymization.service.interfaces;
 
 import com.tnc.Data.Anonymization.enums.AnonymizationStrategy;
-import com.tnc.Data.Anonymization.model.AnonymizationRequest;
-import com.tnc.Data.Anonymization.model.AnonymizationResponse;
+import com.tnc.Data.Anonymization.dto.AnonymizationRequest;
+import com.tnc.Data.Anonymization.dto.AnonymizationResponse;
 import java.util.Map;
 
 /**

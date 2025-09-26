@@ -1,6 +1,6 @@
 package com.tnc.Data.Anonymization.service.interfaces;
 
-import com.tnc.Data.Anonymization.model.FileAnonymizationResponse;
+import com.tnc.Data.Anonymization.dto.FileAnonymizationResponse;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;

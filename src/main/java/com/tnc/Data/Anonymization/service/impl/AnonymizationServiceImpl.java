@@ -2,8 +2,8 @@ package com.tnc.Data.Anonymization.service.impl;
 
 import com.tnc.Data.Anonymization.enums.AnonymizationStrategy;
 import com.tnc.Data.Anonymization.enums.DataType;
-import com.tnc.Data.Anonymization.model.AnonymizationRequest;
-import com.tnc.Data.Anonymization.model.AnonymizationResponse;
+import com.tnc.Data.Anonymization.dto.AnonymizationRequest;
+import com.tnc.Data.Anonymization.dto.AnonymizationResponse;
 import com.tnc.Data.Anonymization.service.interfaces.AnonymizationService;
 import com.tnc.Data.Anonymization.service.interfaces.DataAnonymizer;
 import org.springframework.beans.factory.annotation.Qualifier;

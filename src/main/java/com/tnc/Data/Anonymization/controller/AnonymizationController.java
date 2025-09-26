@@ -1,8 +1,8 @@
 package com.tnc.Data.Anonymization.controller;
 
 import com.tnc.Data.Anonymization.enums.AnonymizationStrategy;
-import com.tnc.Data.Anonymization.model.AnonymizationRequest;
-import com.tnc.Data.Anonymization.model.AnonymizationResponse;
+import com.tnc.Data.Anonymization.dto.AnonymizationRequest;
+import com.tnc.Data.Anonymization.dto.AnonymizationResponse;
 import com.tnc.Data.Anonymization.service.interfaces.AnonymizationService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
@@ -16,6 +16,10 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -32,6 +36,8 @@ import java.util.Map;
 @CrossOrigin(origins = "*")
 @RequiredArgsConstructor
 @Tag(name = "Data Anonymization", description = "APIs for anonymizing sensitive data using various strategies")
+@SecurityRequirement(name = "bearerAuth")
+@PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
 public class AnonymizationController {
     
     private final AnonymizationService anonymizationService;
@@ -56,7 +62,14 @@ public class AnonymizationController {
             @Parameter(description = "Anonymization request containing data and strategy", required = true)
             @Valid @RequestBody AnonymizationRequest request) {
         try {
+            // Add audit info
+            Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+            String username = auth.getName();
+            
             AnonymizationResponse response = anonymizationService.anonymizeData(request);
+            
+            // Add user context to response
+            response.setProcessedBy(username);
             
             if (response.isSuccess()) {
                 return ResponseEntity.ok(response);

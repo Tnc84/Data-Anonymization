@@ -58,6 +58,7 @@ public class FileAnonymizationController {
                 content = @Content(mediaType = "application/json"))
     })
     @PostMapping(value = "/upload-anonymize", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
     public ResponseEntity<FileAnonymizationResponse> uploadAndAnonymize(
             @Parameter(description = "File to anonymize (CSV or JSON)", required = true)
             @RequestParam("file") MultipartFile file,
@@ -110,6 +111,7 @@ public class FileAnonymizationController {
         @ApiResponse(responseCode = "500", description = "Internal server error")
     })
     @GetMapping("/download/{fileName}")
+    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
     public ResponseEntity<Resource> downloadFile(
             @Parameter(description = "Name of the anonymized file to download", required = true)
             @PathVariable String fileName) {
@@ -154,6 +156,7 @@ public class FileAnonymizationController {
         @ApiResponse(responseCode = "500", description = "Internal server error")
     })
     @GetMapping("/files")
+    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
     public ResponseEntity<?> listAnonymizedFiles() {
         try {
             Path anonymizedDir = fileAnonymizationService.getAnonymizedFilePath("");

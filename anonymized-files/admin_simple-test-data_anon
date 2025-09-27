@@ -1,0 +1,12 @@
+{
+  "firstName" : "Lucina",
+  "lastName" : "Lucina",
+  "address" : "48750 Sawayn Plaza",
+  "phone" : "434-875-0656",
+  "dateOfBirth" : "Wed Mar 17 00:10:15 EET 1965",
+  "creditCard" : "4348-7506-5632-4144",
+  "salary" : 863,
+  "isActive" : false,
+  "email" : "lucina.padberg@example.com",
+  "ssn" : "434-87-5065"
+}

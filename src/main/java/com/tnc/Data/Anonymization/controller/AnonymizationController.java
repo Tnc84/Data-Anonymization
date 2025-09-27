@@ -58,6 +58,7 @@ public class AnonymizationController {
                 content = @Content(mediaType = "application/json"))
     })
     @PostMapping("/anonymize")
+    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
     public ResponseEntity<AnonymizationResponse> anonymizeData(
             @Parameter(description = "Anonymization request containing data and strategy", required = true)
             @Valid @RequestBody AnonymizationRequest request) {
@@ -89,6 +90,7 @@ public class AnonymizationController {
      * Quick anonymization with default settings
      */
     @PostMapping("/quick-anonymize")
+    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
     public ResponseEntity<Map<String, Object>> quickAnonymize(@RequestBody Map<String, Object> data) {
         try {
             AnonymizationRequest request = new AnonymizationRequest(data, "MASKING");
@@ -125,6 +127,7 @@ public class AnonymizationController {
                 content = @Content(mediaType = "application/json"))
     })
     @GetMapping("/strategies")
+    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
     public ResponseEntity<Map<String, Object>> getAvailableStrategies() {
         try {
             AnonymizationStrategy[] strategies = anonymizationService.getAvailableStrategies();
@@ -171,6 +174,7 @@ public class AnonymizationController {
      * Batch anonymization endpoint for processing multiple datasets
      */
     @PostMapping("/batch-anonymize")
+    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
     public ResponseEntity<Map<String, Object>> batchAnonymize(@RequestBody Map<String, Object> batchRequest) {
         try {
             @SuppressWarnings("unchecked")
